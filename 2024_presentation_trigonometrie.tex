@@ -1,0 +1,156 @@
+\documentclass[10pt]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{tabularx}
+\usepackage{tkz-tab}
+\usepackage{caption}
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{pstricks,pstricks-add,pst-plot,pst-tree,pst-node}
+\usepackage{tikz,tkz-tab}
+\usepackage{bm}
+
+\DecimalMathComma
+\frenchbsetup{StandardLists=true}
+\usepackage[autolanguage,np]{numprint}
+\usepackage{colortbl}
+
+\newtheorem{theo}{Théorème}
+\newtheorem{prop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{defin}{Définition}
+\newtheorem{rmq}{Remarque}
+\theoremstyle{example}
+\newtheorem{exemple}{Exemple}
+\newtheorem{exemples}{Exemples}
+
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\D}{\ensuremath{\mathbb{D}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\OIJ}{\ensuremath{\left(\mathrm{O},~\mathrm{I},~\mathrm{J}\right)}}
+\newcommand{\Oij}{\ensuremath{\left(\mathrm{O}~;~\vec{\imath},~\vec{\jmath}\right)}}
+\newcommand{\e}[1]{\mathrm{e}^{#1}}
+\newcommand{\Card}[1]{\ensuremath{\mathrm{Card}\left(#1\right)}}
+\newcommand{\intervFF}[2]{\ensuremath{\left[#1~;~#2\right]}}
+\newcommand{\intervFO}[2]{\ensuremath{\left[#1~;~#2\right[}}
+\newcommand{\intervOF}[2]{\ensuremath{\left]#1~;~#2\right]}}
+\newcommand{\intervOO}[2]{\ensuremath{\left]#1~;~#2\right[}}
+
+
+\usetheme{Luebeck}
+\usefonttheme{serif}
+
+\title[Chapitre 2]{{\small{Spécialité mathématiques première}}\\Chapitre 2 : Trigonométrie}
+\author{S. Dibos}
+\institute{Lycée Dick Ukeiwë}
+\date{Année 2024}
+
+\AtBeginSection[]
+{
+\begin{frame}{Plan}
+\tableofcontents[currentsection]
+\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Enroulement de la droite des réels}
+\subsection{Cercle trigonométrique}
+
+\begin{frame}{Cercle trigonométrique}
+\transdissolve[duration=2]
+\begin{overprint}
+\only<1->{%
+\only<1>{\Oij{} désigne un repère orthonormal du plan.}
+\begin{defin}
+On appelle \alert<1>{\textbf{cercle trigonométrique}}, le cercle de centre O, de rayon 1 et orienté dans le sens positif (de $\vec{\imath}$ vers $\vec{\jmath}$).
+\end{defin}}
+\only<2->{%
+\begin{center}
+\psset{unit=1.375cm,algebraic=true,dotstyle=+,dotsize=5pt 0, linewidth=1.1pt,arrowsize=4pt 1,arrowinset=.25}
+\begin{pspicture*}(-1.6,-1.6)(1.6,1.6)
+\psgrid[gridlabels=0,subgriddiv=5,gridcolor=cyan,subgridcolor=cyan](0,0)(-1.6,-1.6)(1.6,1.6)
+\psaxes[labels=none,ticksize=2pt 0,subticks=2,arrowsize=3pt 1]{->}(0,0)(-1.5,-1.5)(1.5,1.5)
+\psline[linewidth=1.25pt]{<->}(0,1)(0,0)(1,0)
+\pscircle[linecolor=blue](0,0){1}
+\psarc[linecolor=red]{->}(0,0){1.5}{35}{70}
+\begin{scriptsize}
+\uput[-135](0,0){O} \uput[-90](0.5,0){$\vec{\imath}$} \uput[180](0,0.5){$\vec{\jmath}$} \uput[120](-0.5,0.866){\blue{\small{$\Gamma$}}} \uput[45](0.913,1.19){\red{\large{\textbf{+}}}}
+\end{scriptsize}
+\end{pspicture*}
+\captionof{figure}{Cercle trigonométrique}
+\end{center}}
+\end{overprint}
+\end{frame}
+
+\subsection{Enroulement de la droite réelle}
+
+\begin{frame}{Enroulement de la droite réelle}
+\transdissolve[duration=2]
+\begin{overprint}
+\begin{columns}
+\begin{column}{.375\textwidth}
+\only<1->{%
+On considère la droite $\left(d\right)$ tangente au cercle $\Gamma$ en I et munie du repère $\left(\mathrm{I},~\vec{\jmath}\right)$. À tout point P d'abscisse $x$ de la droite $\left(d\right)$, on associe un unique point M sur le cercle trigonométrique. Pour cela, on \og enroule\fg{} le segment $\left[\mathrm{IP}\right]$ autour de $\Gamma$.
+
+\onslide<2>{La position de M sur le cercle trigonométrique est donc associée à $x$. M est appelé \textbf{l'image} du réel $x$ sur le cercle trigonométrique.}}
+\end{column}
+\begin{column}{.525\textwidth}
+\only<1->{%
+\begin{center}
+\psset{unit=1.25cm,algebraic=true,dimen=middle,dotsize=5pt 0, linewidth=1.1pt,arrowsize=4pt 1,arrowinset=.25}
+\begin{pspicture*}(-1.4,-1.5)(1.8,3)
+\psgrid[gridlabels=0,subgriddiv=5,gridcolor=cyan,subgridcolor=cyan](0,0)(-1.4,-1.4)(1.8,3)
+\psaxes[labels=none,ticksize=4pt 0,subticks=2,arrowsize=3pt 1]{->}(0,0)(-1.25,-1.25)(1.75,2.75)
+\psline[linewidth=1.75pt]{<->}(0,1)(0,0)(1,0)
+\pscircle[linecolor=blue](0,0){1}
+\psline(1,-1.25)(1,2.75)
+\psdots(1,0)
+\psline[linewidth=1.75pt]{->}(1,0)(1,1)
+\onslide<2->{\psdots[dotstyle=*,linecolor=red](1,2.18)(-0.572,0.82)
+\psarc[linecolor=red]{->}(1.675,-0.1){2.4}{110}{155}}
+\begin{scriptsize}
+\uput[-135](0,0){O} \uput[-90](0.5,0){$\vec{\imath}$} \uput[-180](0,0.5){$\vec{\jmath}$} \uput{0.2}[30](0.05,0.985){\blue{$\Gamma$}} \uput[-45](1,0){I} \onslide<2>{\uput[120](1,2.18){\red{P}} \uput[0](1,2.18){\red{$x$}} \uput[180](-0.572,0.82){\red{M}}}
+\end{scriptsize}
+\end{pspicture*}
+\end{center}}
+\end{column}
+\end{columns}
+\end{overprint}
+\end{frame}
+
+\subsection{Le radian}
+
+\begin{frame}
+
+\end{frame}
+
+\section{Repérage d'un point sur le cercle trigonométrique}
+\subsection{Cosinus et sinus d'un réel $x$}
+
+\begin{frame}
+
+\end{frame}
+
+\subsection{Propriétés du cosinus et du sinus}
+
+\begin{frame}
+
+\end{frame}
+
+\subsection{Valeurs remarquables du cosinus et du sinus}
+
+\begin{frame}
+
+\end{frame}
+
+\end{document}

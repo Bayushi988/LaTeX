@@ -1,0 +1,377 @@
+\documentclass[french,11pt,a4paper]{report}
+
+\RequirePackage{etex}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+\usepackage{fourier}
+\usepackage[scaled=.875]{helvet}
+\usepackage{courier}
+\usepackage{amsfonts,amsthm,amsmath,amssymb}
+\DecimalMathComma
+\frenchbsetup{StandardLists=true}
+\usepackage[autolanguage,np]{numprint}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{fancyhdr,fancybox}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{soul}
+\usepackage[normalem]{ulem}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\usepackage{xlop}
+\usepackage{stmaryrd}
+\usepackage{euscript}
+\usepackage{calc}
+\usepackage{slashbox}
+\usepackage{layout}
+\usepackage{pst-all}
+\usepackage{pst-solides3d}
+\usepackage{tikz,tkz-tab}
+\usepackage{eurosym}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage[Lenny]{fncychap}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2cm,right=2cm,headheight=36pt]{geometry}
+\usepackage{hyperref}
+
+{\theoremstyle{plain}{%
+\newtheorem{prop}{Proposition}[chapter]
+\newtheorem{theo}{Théorème}[chapter]
+\newtheorem{corol}[theo]{Corollaire}
+\newtheorem{lemme}[theo]{Lemme}}}
+\newtheorem*{prop*}{Proposition}
+\newtheorem*{theo*}{Théorème}
+
+{\theoremstyle{definition}{%
+\newtheorem{defin}{Définition}[chapter]
+\newtheorem{exemple}{Exemple}[chapter]
+\newtheorem*{defin*}{Définition}
+\newtheorem*{exemple*}{Exemple}
+}}
+
+{\theoremstyle{remark}{%
+\newtheorem*{rmq}{Remarque}
+}}
+
+\newcounter{numexo}
+\newcommand{\exercice}{\stepcounter{numexo}
+\noindent{\textbf{Exercice \no\thenumexo~:~}}}
+
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\D}{\ensuremath{\mathbb{D}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\renewcommand{\thepart}{\Alph{part}.}
+\renewcommand{\thesection}{\Roman{section}.}
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\alph{subsubsection})}
+\renewcommand{\gcd}{\mathrm{PGCD}}
+\renewcommand{\labelenumi}{%
+\textbf{\theenumi.}}
+\renewcommand{\labelenumii}{%
+\textbf{\theenumii.}}
+\setlength{\parindent}{0pt}
+
+\newcommand{\Cadre}[1]{%
+{\centering{\setlength{\fboxsep}{8pt}
+\cornersize{0.333}
+\centering
+\Ovalbox{%
+\begin{minipage}{.95\textwidth}
+#1
+\end{minipage}
+}}}}
+
+\newcommand{\OIJ}{\ensuremath{\left(\mathrm{O},~\mathrm{I},~\mathrm{J}\right)}}
+\newcommand{\Oij}{\ensuremath{\left(\mathrm{O}~;~\vec{\imath},~\vec{\jmath}\right)}}
+\newcommand{\Oijk}{\ensuremath{\left(\mathrm{O}~;~\vec{\imath},~\vec{\jmath},~\vec{k}\right)}}
+\newcommand{\Bij}{\ensuremath{\left(\vec{\imath},~\vec{\jmath}\right)}}
+\newcommand{\Bijk}{\ensuremath{\left(\vec{\imath},~\vec{\jmath},~\vec{k}\right)}}
+\newcommand{\Vect}[1]{\overrightarrow{\mathrm{#1}}}
+\newcommand{\vect}[1]{\overrightarrow{\mathrm{#1}}}
+\renewcommand{\d}{\,\mathrm{d}}
+\newcommand{\intg}{\displaystyle\int}
+\newcommand{\e}[1]{\mathrm{e}^{#1}}
+\newcommand{\Card}[1]{\ensuremath{\mathrm{Card}\left(#1\right)}}
+\newcommand{\intervFF}[2]{\ensuremath{\left[#1~;~#2\right]}}
+\newcommand{\intervFO}[2]{\ensuremath{\left[#1~;~#2\right[}}
+\newcommand{\intervOF}[2]{\ensuremath{\left]#1~;~#2\right]}}
+\newcommand{\intervOO}[2]{\ensuremath{\left]#1~;~#2\right[}}
+
+\title{Lycée Dick Ukeiwë\\Enseignement de spécialité mathématiques\\Première générale}
+\author{S. DIBOS}
+\date{Année 2024}
+
+\setcounter{secnumdepth}{4}
+\setcounter{chapter}{1}
+
+\begin{document}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{\leftmark}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+\chapter{Trigonométrie}
+\section{Enroulement de la droite des réels}
+\subsection{Cercle trigonométrique}
+
+\Oij{} désigne un repère orthonormal du plan.
+
+\medskip
+
+\Cadre{%
+\begin{defin}\
+
+On appelle \textbf{cercle trigonométrique}, le cercle de centre O, de rayon 1 et orienté dans le sens positif (de \boldmath $\vec{\imath}$ vers $\vec{\jmath}$ \unboldmath).
+\end{defin}}
+
+\begin{center}
+\psset{unit=2.75cm,algebraic=true,dotstyle=+,dotsize=5pt 0, linewidth=1.25pt,arrowsize=4pt 2,arrowinset=.25}
+\begin{pspicture*}(-1.6,-1.6)(1.6,1.6)
+\psgrid[gridlabels=0,subgriddiv=5,gridcolor=gray,subgridcolor=lightgray](0,0)(-1.6,-1.6)(1.6,1.6)
+\psaxes[labels=none,ticksize=4pt 0,subticks=2,arrowsize=3pt 1]{->}(0,0)(-1.5,-1.5)(1.5,1.5)
+\psline[linewidth=1.75pt]{<->}(0,1)(0,0)(1,0)
+%\pscircle[linecolor=blue](0,0){1}
+\uput[-135](0,0){\large{O}} \uput[-90](0.5,0){\large{$\vec{\imath}$}} \uput[180](0,0.5){\large{$\vec{\jmath}$}} %\uput[120](-0.5,0.866){\blue{\large{$\Gamma$}}} \psarc[linecolor=red]{->}(0,0){1.5}{35}{70} \uput[45](0.913,1.19){\red{\Large{\textbf{+}}}}
+\end{pspicture*}
+\captionof{figure}{\phantom{Cercle trigonométrique}}
+\end{center}
+
+\subsection{Enroulement de la droite réelle}
+
+\begin{minipage}[c]{.4\linewidth}
+On considère la droite $\left(d\right)$ tangente au cercle $\Gamma$ en I et munie du repère $\left(\mathrm{I},~\vec{\jmath}\right)$. À tout point P d'abscisse $x$ de la droite $\left(d\right)$, on associe un unique point M sur le cercle trigonométrique. Pour cela, on \og enroule\fg{} le segment $\left[\mathrm{IP}\right]$ autour de $\Gamma$.
+
+
+La position de M sur le cercle trigonométrique est donc associée à $x$. M est appelé \textbf{l'image} du réel $x$ sur le cercle trigonométrique.
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.55\linewidth}
+\begin{center}
+\psset{unit=2.5cm,algebraic=true,dimen=middle,dotsize=5pt 0, linewidth=1.2pt,arrowsize=4pt 2,arrowinset=.25}
+\begin{pspicture*}(-1.4,-1.5)(1.8,3)
+\psgrid[gridlabels=0,subgriddiv=5,gridcolor=lightgray,subgridcolor=lightgray](0,0)(-1.4,-1.4)(1.8,3)
+\psaxes[labels=none,ticksize=4pt 0,subticks=2,arrowsize=3pt 1]{->}(0,0)(-1.25,-1.25)(1.75,2.75)
+\psline[linewidth=1.75pt]{<->}(0,1)(0,0)(1,0)
+\pscircle[linecolor=blue](0,0){1}
+\psline(1,-1.25)(1,2.75)
+\psdots(1,0)
+\psline[linewidth=1.75pt]{->}(1,0)(1,1)
+%\psarc[linecolor=red]{->}(0,0){1.5}{35}{70}
+%\uput[45](0.913,1.19){{\red{\Large{\textbf{+}}}}}
+%\psdots(1,1)
+%\psdots[dotstyle=*,linecolor=red](1,2.18)(-0.572,0.82)
+%\psarc[linecolor=red]{->}(1.675,-0.1){2.4}{110}{155}
+\uput[-135](0,0){O} \uput[-90](0.5,0){$\vec{\imath}$} \uput[-180](0,0.5){$\vec{\jmath}$} \uput{0.2}[30](0.05,0.985){\blue{$\Gamma$}} \uput[-45](1,0){I} %\uput[120](1,2.18){\red{P}} \uput[0](1,2.18){\red{$x$}} \uput[180](-0.572,0.82){\red{M}} 
+\end{pspicture*}
+\end{center}
+\end{minipage}
+
+\Cadre{%
+\begin{prop}\
+
+Soient $x \in \R$ et $k \in \Z$. Sur le cercle trigonométrique soit M l'image du réel $x$. Alors tout réel de la forme $x + k \times 2\pi$ est également associé à M.
+\end{prop}}
+
+\bigskip
+
+\begin{minipage}[t]{.4\linewidth}
+En effet la longueur du cercle $\Gamma$ est $2\pi$, donc si on ajoute $2\pi$ à $x$, on fait 1 tour et on a la même image. Donc pour tout multiple (positif ou négatif) de $2\pi$ il en est de même.
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.55\linewidth}
+\begin{center}
+\psset{unit=2.5cm,algebraic=true,dotstyle=+,dotsize=5pt 0, linewidth=1.2pt,arrowsize=4pt 2,arrowinset=.25}
+\begin{pspicture*}(-1.4,-1.4)(1.4,1.4)
+\psgrid[gridlabels=0,subgriddiv=5,gridcolor=lightgray,subgridcolor=lightgray](0,0)(-1.4,-1.4)(1.4,1.4)
+\psaxes[labels=none,ticksize=4pt 0,subticks=2,arrowsize=3pt 1]{->}(0,0)(-1.4,-1.4)(1.4,1.4)
+\psline[linewidth=1.75pt]{<->}(0,1)(0,0)(1,0)
+\pscircle[linecolor=blue](0,0){1}
+%\psdots[dotstyle=*,linecolor=red](-0.572,0.82)
+%\psarc{->}(0,0){0.9}{125}{485}
+\uput{0.1}[-135](0,0){O} \uput[-90](0.5,0){$\vec{\imath}$} \uput[180](0,0.5){$\vec{\jmath}$} \uput[-120](-0.05,-0.985){\blue{$\Gamma$}} %\psarc[linecolor=red]{->}(0,0){1.5}{35}{70} \uput[45](0.913,1.19){{\red{\Large{\textbf{+}}}}} \uput[125](-0.572,0.82){\red{$x$}} \uput{0.25}[125](-0.572,0.82){\red{$x+k2\pi$}}
+\end{pspicture*}
+\end{center}
+\end{minipage}
+\pagebreak
+
+\subsection{Le radian}
+
+\Cadre{%
+\begin{prop}\
+
+La longueur d'un arc de cercle de rayon $R$ et d'angle au centre $\alpha$ ($0^{\circ} \leqslant \alpha \leqslant 360^{\circ}$) est : \boldmath $\ell = R \times \dfrac{\pi \times \alpha}{180}$. \boldmath
+\end{prop}}
+
+\begin{center}
+\psset{unit=1.5cm,algebraic=true,dimen=middle,linewidth=1.2pt, dotstyle=+,dotsize=5pt 0,arrowsize=4pt 2,arrowinset=.25}
+\begin{pspicture*}(1,0.5)(5.7,4.4)
+%\psarc[showpoints=true,arcsep,linecolor=red](2.,1.){3}{25}{75}
+%\psarc[linecolor=blue](2.,1.){0.5}{25}{75}
+%\uput[50](3.928,3.298){\red{$\ell$}} \uput[50](2.321,1.383){\blue{$\alpha$}} \uput[-40](3.359,1.634){$R$}
+\end{pspicture*}
+\end{center}
+
+\medskip
+
+\Cadre{%
+\begin{defin}\
+
+Sur le cercle trigonométrique $\Gamma$, le \textbf{radian} est la mesure de l'angle au centre qui intercepte sur $\Gamma$ un arc de longueur 1.
+\end{defin}}
+
+
+\begin{center}
+\psset{unit=2.5cm,algebraic=true,linewidth=1.25pt, dotstyle=+,dotsize=5pt 0,arrowsize=4pt 2,arrowinset=.25}
+\begin{pspicture*}(-1.4,-1.4)(1.6,1.6)
+\psgrid[gridlabels=0,subgriddiv=5,gridcolor=lightgray,subgridcolor=lightgray](0,0)(-1.4,-1.4)(1.6,1.6)
+\psaxes[labels=none,ticksize=4pt 0,subticks=2,arrowsize=3pt 1]{->}(0,0)(-1.25,-1.25)(1.5,1.5)
+\psline[linewidth=1.75pt]{<->}(0,1)(0,0)(1,0)
+\pscircle{1}
+%\psarc[linecolor=red](0,0){1}{0}{57.296}
+%\psline[linecolor=red](0,0)(0.54,0.841)
+%\psarc[linecolor=blue](0,0){0.2}{0}{57.296}
+\uput[-135](0,0){\small{O}} \uput[-90](0.5,0){$\vec{\imath}$} \uput[180](0,0.5){$\vec{\jmath}$} %\uput{0.05}[28.648](0.878,0.479){\red{$\ell=1$}} \uput[28.648](0.176,0.096){\blue{\small{$1$ radian}}}
+\end{pspicture*}
+\end{center}
+
+\section{Repérage d'un point sur le cercle trigonométrique}
+\subsection{Cosinus et sinus d'un réel $x$}
+
+\begin{minipage}[c]{.4\linewidth}
+Soit M l'image du réel $x$. Pour simplifier la lecture sur le cercle trigonométrique, on notera le nombre réel $x$ au même endroit que son point image M.
+
+Si H est le point de $\left(\mathrm{OI}\right)$ de même abscisse que M, le triangle OHM est rectangle en H, et on a :
+
+\medskip
+
+$\begin{cases}\cos \widehat{\mathrm{HOM}} &= \dfrac{\mathrm{OH}}{\mathrm{OM}} = \dfrac{\left|x_{\mathrm{M}}\right|}{1} = \left|x_{\mathrm{M}}\right|\\
+\\
+\sin \widehat{\mathrm{OHM}} &= \dfrac{\mathrm{MH}}{\mathrm{OM}} = \dfrac{\left|y_{\mathrm{M}}\right|}{1} = \left|y_{\mathrm{M}}\right| \end{cases}$.
+
+\bigskip
+
+On remarque alors que si $x$ est un réel dont M est l'image, on a $\cos x = x_{\mathrm{M}}$ et $\sin x = y_{\mathrm{M}}$.
+
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.55\linewidth}
+\begin{center}
+\psset{unit=2.5cm,algebraic=true,linewidth=1.25pt,dotstyle=+,dotsize=5pt 0,arrowsize=4pt 2,arrowinset=.25}
+\begin{pspicture*}(-1.6,-1.6)(1.6,1.6)
+\psgrid[gridlabels=0,subgriddiv=5,gridcolor=lightgray,subgridcolor=lightgray](0,0)(-1.6,-1.6)(1.6,1.6)
+\psaxes[labels=none,ticksize=4pt 0,subticks=2,arrowsize=3pt 1]{->}(0,0)(-1.5,-1.5)(1.5,1.5)
+\psline[linewidth=1.75pt]{<->}(0,1)(0,0)(1,0)
+\pscircle{1}
+%\psdots[linecolor=red](-0.469,0.883)
+%\psline[linecolor=red](0,0)(-0.469,0.883)
+%\psdots[linecolor=blue](-0.469,0)
+%\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](-0.469,0)(-0.469,0.883)
+%\psarc[linecolor=blue](0,0){0.2}{118}{180}
+%\psdots[linecolor=blue,dotstyle=*,dotsize=3pt 0](-0.469,0)(0,0.883)
+%\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](-0.469,0)(-0.469,0.883)
+%\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](0,0.883)(-0.469,0.883)
+\uput{0.05}[-135](0,0){\small{O}} \uput{0.1}[-90](0.5,0){$\vec{\imath}$} \uput{0.1}[180](0,0.5){$\vec{\jmath}$} %\uput{0.1}[118](-0.469,0.883){\red{$x$}} \uput{0.1}[122](-0.469,0.883){\red{M}} \uput{0.1}[135](-0.469,0){\blue{H}} \uput{0.05}[149](-0.171,0.103){\blue{\tiny{$\widehat{\mathrm{HOM}}$}}} \uput{0.1}[-90](-0.469,0){\blue{$\cos x$}} \uput{0.1}[0](0,0.883){\blue{$\sin x$}}
+\end{pspicture*}
+\end{center}
+\end{minipage}
+
+\bigskip
+
+\Cadre{%
+\begin{defin}\
+
+Dans un repère orthonormé direct \OIJ{} du plan, soit $\Gamma$ le cercle trigonométrique. Soient $x$ un réel et M l'image de $x$ sur $\Gamma$.
+
+\begin{itemize}
+	\item on appelle \textbf{cosinus} de $x$, noté $\cos x$, l'abscisse de M ;
+	\item on appelle \textbf{sinus} de $x$, noté $\sin x$, l'ordonnée de M.
+\end{itemize}
+\end{defin}}
+
+\begin{center}
+\psset{unit=2.5cm,algebraic=true,linewidth=1.25pt,dotstyle=+,dotsize=5pt 0,arrowsize=4pt 2,arrowinset=.25}
+\begin{pspicture*}(-1.6,-1.6)(1.6,1.6)
+\psgrid[gridlabels=0,subgriddiv=5,gridcolor=lightgray,subgridcolor=lightgray](0,0)(-1.6,-1.6)(1.6,1.6)
+\psaxes[labels=none,Dx=1,Dy=1,ticksize=4pt 0,subticks=2]{->}(0,0)(-1.25,-1.25)(1.5,1.5)
+\psline[linewidth=1.75pt]{<->}(0,1)(0,0)(1,0)
+\pscircle{1}
+%\psdots[linecolor=red](0.574,-0.819)
+%\psdots[linecolor=blue,dotstyle=*,dotsize=3pt 0](0.574,0)(0,-0.819)
+%\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](0.574,0)(0.574,-0.819)
+%\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](0,-0.819)(0.574,-0.819)
+\uput{0.05}[-135](0,0){\small{O}} \uput{0.1}[-90](0.5,0){$\vec{\imath}$} \uput{0.1}[180](0,0.5){$\vec{\jmath}$} %\uput{0.1}[-55](0.574,-0.819){\red{\small{$x$}}}ù\uput{0.1}[125](0.574,-0.819){\red{\small{M}}} \uput{0.1}[90](0.574,0){\blue{\small{$\cos x$}}} \uput{0.1}[180](0,-0.819){\blue{\small{$\sin x$}}}
+\end{pspicture*}
+\end{center}
+
+\subsection{Propriétés du cosinus et du sinus}
+
+\Cadre{%
+\begin{prop}
+Soit $x$ un réel. On a alors :
+\begin{multicols}{3}
+\begin{itemize}
+	\item \boldmath $-1 \leqslant \cos x \leqslant 1$ ;
+	\item $-1 \leqslant \sin x \leqslant 1$ ;
+	\item $\cos^{2} x + \sin^{2} x = 1$. \unboldmath
+\end{itemize}
+\end{multicols}
+\end{prop}}
+
+\begin{proof}\
+
+\begin{doublespacing}
+\dotfill\par\dotfill\par\dotfill\par\dotfill\par
+\end{doublespacing}
+\end{proof}
+
+\subsection{Valeurs remarquables du cosinus et du sinus}
+
+\begin{center}
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{.9\textwidth}{|*{7}{>{\centering\arraybackslash$}X<{$}|}}
+	\hline
+	x &  & & & & & \\ \hline
+	\cos x & & & & & & \\ \hline
+	\sin x & & & & & & \\ \hline
+\end{tabularx}
+\captionof{table}{Valeurs remarquables du cosinus et du sinus}
+
+\psset{unit=4.7cm,algebraic=true,linewidth=1.25pt,dotstyle=+,dotsize=5pt 0,arrowsize=4pt 2,arrowinset=.25}
+\begin{pspicture*}(-1.25,-1.25)(1.25,1.25)
+\psaxes[labels=none,ticksize=4pt 0,subticks=2,arrowsize=3pt 1]{->}(0,0)(-1.25,-1.25)(1.25,1.25)
+\psline[linewidth=1.75pt]{<->}(1,0)(0,0)(0,1)
+\pscircle{1}
+\psdots[linecolor=red,dotstyle=square*](1,0)(0.867,0.5)(0.707,0.707)(0.5,0.867)(0,1)(-0.5,0.867)(-0.707,0.707)(-0.867,0.5)(-1,0)(-0.867,-0.5)(-0.707,-0.707)(-0.5,-0.867)(0,-1)(0.5,-0.867)(0.707,-0.707)(0.867,-0.5)
+\psdots[linecolor=blue,dotstyle=*](-0.867,0)(-0.707,0)(-0.5,0)(0,0)(0.5,0)(0.707,0)(0.867,0)(0,-0.867)(0,-0.707)(0,-0.5)(0,0.5)(0,0.707)(0,0.867)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](0.867,0)(0.867,0.5)(0,0.5)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](-0.2,0.5)(-0.867,0.5)(-0.867,0)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](-0.867,-0.25)(-0.867,-0.5)(-0.25,-0.5)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](0,-0.5)(0.867,-0.5)(0.867,-0.25)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](0.707,0)(0.707,0.707)(0,0.707)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](-0.2,0.707)(-0.707,0.707)(-0.707,0)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](-0.707,-0.25)(-0.707,-0.707)(-0.25,-0.707)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](0,-0.707)(0.707,-0.707)(0.707,-0.25)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](0.5,0)(0.5,0.867)(0,0.867)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](-0.2,0.867)(-0.5,0.867)(-0.5,0)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](-0.5,-0.25)(-0.5,-0.867)(-0.25,-0.867)
+\psline[linecolor=blue,linewidth=.8pt,linestyle=dashed](0,-0.867)(0.5,-0.867)(0.5,-0.25)
+\uput[-135](0,0){\small{O}} \uput[120](0.5,0){$\vec{\imath}$} \uput[-60](0,0.5){$\vec{\jmath}$} \uput[30](1.,0.){\red{0}} \uput[30](0.867,0.5){\red{$\dfrac{\pi}{6}$}} \uput[45](0.707,0.707){\red{$\dfrac{\pi}{4}$}} \uput[60](0.5,0.867){\red{$\dfrac{\pi}{3}$}} \uput[60](0.,1.){\red{$\dfrac{\pi}{2}$}} \uput[120](-0.5,0.867){\red{$\dfrac{2\pi}{3}$}} \uput[135](-0.707,0.707){\red{$\dfrac{3\pi}{4}$}} \uput[150](-0.867,0.5){\red{$\dfrac{5\pi}{6}$}} \uput[150](-1.,0.){\red{$\pi$}} \uput[-150](-0.867,-0.5){\red{$-\dfrac{5\pi}{6}$}} \uput[-135](-0.707,-0.707){\red{$-\dfrac{3\pi}{4}$}} \uput[-120](-0.5,-0.867){\red{$-\dfrac{2\pi}{3}$}} \uput[-120](0.,-1.){\red{$-\dfrac{\pi}{2}$}} \uput[-60](0.5,-0.867){\red{$-\dfrac{\pi}{3}$}} \uput[-45](0.707,-0.707){\red{$-\dfrac{\pi}{4}$}} \uput[-30](0.867,-0.5){\red{$-\dfrac{\pi}{6}$}}
+\uput[-135](1,0){\blue{$1$}} \uput[-90](0.867,0){\blue{\small{$\dfrac{\sqrt{3}}{2}$}}} \uput[-90](0.707,0){\blue{\small{$\dfrac{\sqrt{2}}{2}$}}} \uput[-90](0.5,0){\blue{\small{$\dfrac{1}{2}$}}} \uput[-90](-0.5,0){\blue{\small{$-\dfrac{1}{2}$}}} \uput[-90](-0.707,0){\blue{\small{$-\dfrac{\sqrt{2}}{2}$}}} \uput[-100](-0.867,0){\blue{\small{$-\dfrac{\sqrt{3}}{2}$}}} \uput[-135](-1,0){\blue{$-1$}} \uput[-45](0,1){\blue{$1$}} \uput[180](0,0.867){\blue{\small{$\dfrac{\sqrt{3}}{2}$}}} \uput[-170](0,0.707){\blue{\small{$\dfrac{\sqrt{2}}{2}$}}} \uput[180](0,0.5){\blue{\small{$\dfrac{1}{2}$}}} \uput[135](0,0.){\blue{\small{$0$}}} \uput[180](0,-0.5){\blue{\small{$-\dfrac{1}{2}$}}} \uput[170](0,-0.707){\blue{\small{$-\dfrac{\sqrt{2}}{2}$}}} \uput[180](0,-0.867){\blue{\small{$-\dfrac{\sqrt{3}}{2}$}}} \uput[45](0,-1){\blue{$-1$}}
+\end{pspicture*}
+\end{center}
+
+\end{document}
